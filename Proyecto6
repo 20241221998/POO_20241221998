@@ -1,0 +1,27 @@
+package proyecto6;
+
+import java.util.Scanner;
+
+public class Proyecto6 {
+
+    public static void main(String[] args) {
+        
+        try (Scanner sc = new Scanner(System.in)) {
+            //Declarar una variable entera
+            int numero;
+            
+            //Solicitar al ususario un valor para la variable
+            System.out.print("Ingrese un numero entero: ");
+            numero = sc.nextInt();
+            
+            //Verificar si el numero es positivo o negativo (0 se considera positivo)
+            if (numero>= 0) {
+                System.out.println("El numero " + numero + " es positivo.");
+            } else {
+                System.out.println("El numero " + numero + " es negativo.");
+            }
+        }
+        
+    }
+    
+}
