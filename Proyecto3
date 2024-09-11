@@ -1,0 +1,56 @@
+package proyecto3;
+
+import java.util.Scanner;
+
+public class Proyecto3 {
+
+    public static void main(String[] args) {
+        try (Scanner sc = new Scanner(System.in)) {
+            int CantidadBebes;
+            String nombre;
+            char sexo;
+            int ContadorMasculino = 0;
+            int ContadorFemenino = 0;
+            
+            //Solicitar cantidad de nacimientos
+            System.out.print("Ingrese la cantidad de bebes nacidos: ");
+            CantidadBebes = sc.nextInt();
+            sc.nextLine();
+            
+            //Capturar los datos de cada bebe
+            for (int i = 1; i <= CantidadBebes; i++) {
+                System.out.println("/nBebe #" + i);
+                
+                //Nombre del bebe
+                System.out.print("Ingrese el nomre del bebe: ");
+                nombre = sc.nextLine();
+                
+                //Sexo del bebe
+                do{
+                    System.out.print("Ingrese el sexo del bebe (M para masculino, F para femenino): ");
+                    sexo = sc.nextLine().toUpperCase().charAt(0);
+                    
+                    if (sexo != 'M' && sexo != 'F') {
+                        System.out.println("Sexo invalido. Debe ingresar 'M' o 'F'. ");
+                    }
+                    
+                } while (sexo != 'M' && sexo != 'F');
+                
+                //Contar el numero de bebes masculinos y femeninos
+                if (sexo == 'M') {
+                    ContadorMasculino++;
+                } else if (sexo == 'F') {
+                    ContadorFemenino++;
+                }
+            }
+            //Imprimir la cantidad de bebes por sexo
+            System.out.println("/nResumen de nacimientos: ");
+            System.out.println("Bebes masculinos: " + ContadorMasculino);
+            System.out.println("Bebes Femeninos: " + ContadorFemenino);
+        }
+    }
+    
+    
+    
+    
+}
