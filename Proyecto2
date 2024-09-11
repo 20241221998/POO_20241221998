@@ -1,0 +1,62 @@
+package proyecto2;
+
+import java.util.Scanner;
+
+public class Proyecto2 {
+
+    /**
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        
+        try (Scanner sc = new Scanner(System.in)) {
+            int TipoDeCarro;
+            int Color;
+            String TipoDeCarroSeleccionado = "";
+            String TipoColor = "";
+            
+            // Seleccionar el tipo de carro
+            System.out.println("Seleccione el tipo de carro:");
+            System.out.println("1. Auto");
+            System.out.println("2. SUV");
+            System.out.println("3. Camioneta");
+            System.out.print("Ingrese su opcion: ");
+            TipoDeCarro = sc.nextInt();
+            
+            switch (TipoDeCarro) {
+                case 1 -> TipoDeCarroSeleccionado = "Auto";
+                case 2 -> TipoDeCarroSeleccionado = "SUV";
+                case 3 -> TipoDeCarroSeleccionado = "Camioneta";
+                default -> {
+                    System.out.println("Opcion invalida para el tipo de carro.");
+                    System.exit(0);
+                }
+            }
+            //Seleccionar color
+            System.out.println("Seleccione el color del carro: ");
+            System.out.println("1. Negro");
+            System.out.println("2.Blanco");
+            System.out.println("3.Azul");
+            System.out.print("Ingrese su opcion: ");
+            Color = sc.nextInt();
+            String ColorSeleccionado = null;
+            
+            switch (Color) {
+                case 1 -> ColorSeleccionado = "Negro";
+                case 2 -> ColorSeleccionado = "Blanco";
+                case 3 -> ColorSeleccionado = "Azul";
+                default -> {
+                    System.out.println("Opcion invalida para el color.");
+                    System.exit(0);
+                }
+                    
+            }
+            
+            System.out.println("/nSeleccion Final:");
+            System.out.println("Tipo de carro: "+ TipoDeCarroSeleccionado);
+            System.out.println("Color: "+ ColorSeleccionado);
+        }
+          
+    }
+}   
