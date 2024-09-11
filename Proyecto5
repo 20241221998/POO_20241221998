@@ -1,0 +1,21 @@
+package proyecto5;
+
+import java.util.Scanner;
+
+public class Proyecto5 {
+
+    
+    public static void main(String[] args) {
+       
+        try (Scanner sc = new Scanner(System.in)) {
+            //Solicitar el nombre del usuario
+            System.out.print("Ingrese su nombre: ");
+            String nombre = sc.nextLine();
+            
+            //Mostrar el saludo personalizado
+            System.out.println("Buenas tardes, Sr " + nombre);
+        }
+        
+    }
+    
+}
