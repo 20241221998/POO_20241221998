@@ -1,0 +1,44 @@
+package proyecto4;
+
+import java.util.Scanner;
+
+public class Proyecto4 {
+
+   
+    public static void main(String[] args) {
+        try (Scanner sc = new Scanner(System.in)) {
+            final int NumeroPersonas = 37;
+            String[] nombres = new String [NumeroPersonas];
+            int[] edades = new int [NumeroPersonas];
+            
+            //Capturar el nombre y la edad de cada persona
+            for (int i = 0; i < NumeroPersonas; i++) {
+                System.out.println("/nPersona #" + (i + 1));
+                
+                //Capturar el nombre
+                System.out.print("Ingrese el nombre de la persona: ");
+                nombres[i] = sc.nextLine();
+                
+                //Capturar la edad
+                System.out.print("Ingrese la edad de la persona: ");
+                edades[i] = sc.nextInt();
+                sc.nextLine();
+            }
+            //Datos de personas mayores de 85 años
+            System.out.println("/nReporte de adultos mayores de 85 años:");
+            boolean encontrado = false;
+            
+            for(int i = 0; i < NumeroPersonas; i++) {
+                if(edades[i] > 85) {
+                    System.out.println("Nombre: " + nombres[i] + ", Edad: " + edades[i]);
+                    encontrado = true;
+                }
+            }
+            
+            if (!encontrado) {
+                System.out.println("No se encontraron personas mayores de 85 años.");
+            }}
+    }
+   
+    
+}
