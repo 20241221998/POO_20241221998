@@ -1,0 +1,73 @@
+package abastosparkingapp;
+
+import java.util.Scanner;
+
+public class AbastosParkingApp {
+    
+    public static void main(String[] args) {
+    
+        Scanner sc = new Scanner (System.in);
+        
+        double [][] DatosCamion = new double[3][6];
+        
+        double TipoProducto = 0, TipoServicio = 0, ValorPark = 0, Tiempo = 0, peso = 0, largo = 0;
+        
+        //Ingreso manual
+        for (double[] DatosCamion1 : DatosCamion) {
+            System.out.print("Servicio a realizar (1- Descarga 2- Carga):");
+            TipoServicio = sc.nextDouble();
+            //Validar que el tipo de servicio sea 1 o 2
+            
+            if(TipoServicio == 1){
+                System.out.print("Tipo de producto (1- Perecedero 2- No Perecedero):");
+                TipoProducto = sc.nextDouble();
+                
+                System.out.print("Peso de la carga: ");
+                peso = sc.nextDouble();
+                switch((int)TipoProducto){
+                    case 1:
+                        if(peso < 8){
+                            ValorPark = 15000 * peso;
+                        }else{
+                            ValorPark = 9000 * peso;
+                        }
+                        break;
+                    case 2:
+                        if (peso < 8){
+                            ValorPark = 60000;
+                        }else{
+                            ValorPark = 60000 + (peso - 10) * 7000;
+                        }
+                }
+                
+            }else{
+                System.out.print("Tiempo en el parqueadero:");
+                Tiempo = sc.nextDouble();
+                System.out.print("Largo del camion:");
+                largo = sc.nextDouble();
+                if (Tiempo <= 2){
+                    ValorPark = 0;
+                }else{
+                    if (largo <= 4){
+                        ValorPark = (Tiempo - 2) * 4000;
+                    }else{
+                        ValorPark = (Tiempo - 2) * 4000 * 1.25;
+                    }
+                }
+            }
+            System.out.println("Valor a pagar: " +ValorPark);
+            DatosCamion1[0] = TipoServicio;
+            DatosCamion1[1] = TipoProducto;
+            DatosCamion1[2] = peso;
+            DatosCamion1[3] = Tiempo;
+            DatosCamion1[4] = largo;
+            DatosCamion1[5] = ValorPark;
+            
+            
+        }       
+        
+        
+        }
+    }
+    
+
