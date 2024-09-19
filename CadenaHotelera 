@@ -1,0 +1,98 @@
+package cadenahotelera;
+
+//Nikol Crisstina Valenzuela Duran 20241221998
+
+import java.util.Random;
+public class CadenaHotelera {
+
+ 
+    public static void main(String[] args) {
+     
+        int habitaciones = 5; // Número de habitaciones (puedes cambiarlo)
+        int diasSemana = 7; // Días de la semana
+        int[][] consumo = new int[habitaciones][diasSemana];
+        
+        // Generar datos aleatorios de consumo para cada habitación y día
+        generarConsumo(consumo, habitaciones, diasSemana);
+        
+        // Imprimir reporte de consumo por habitación
+        for (int i = 0; i < habitaciones; i++) {
+            imprimirReporteHabitacion(i + 1, consumo[i]);
+        }
+        
+        // Reporte de estadísticas
+        generarEstadisticas(consumo);
+    }
+    
+    // Método para generar datos aleatorios de consumo
+    public static void generarConsumo(int[][] consumo, int habitaciones, int diasSemana) {
+        Random random = new Random();
+        for (int i = 0; i < habitaciones; i++) {
+            for (int j = 0; j < diasSemana; j++) {
+                switch (j) {
+                    case 0:
+                        // Lunes entre 30 y 80 kWh
+                        consumo[i][j] = 30 + random.nextInt(51);
+                        break;
+                    case 5:
+                    case 6:
+                        // Fines de semana entre 40 y 100 kWh
+                        consumo[i][j] = 40 + random.nextInt(61);
+                        break;
+                    default:
+                        // Entre semana entre 30 y 80 kWh
+                        consumo[i][j] = 30 + random.nextInt(51);
+                        break;
+                }
+            }
+        }
+    }
+    
+    // Método para imprimir el reporte de una habitación
+    @SuppressWarnings("empty-statement")
+    public static void imprimirReporteHabitacion(int numeroHabitacion, int[] consumo) {
+        String[] dias;
+        dias = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"}\n";
+"        int totalEntreSemana = 0;\n" +
+"        int totalFinSemana = 0;\n" +
+"        \n" +
+"        System.out.println(\"No. habitación \" + numeroHabitacion);\n" +
+"        for (int i = 0; i < consumo.length; i++) {\n" +
+"            System.out.println(dias[i] + \": \" + consumo[i] + \" kWh\");\n" +
+"            if (i >= 0 && i <= 4) {\n" +
+"                totalEntreSemana += consumo[i];\n" +
+"            } else {\n" +
+"                totalFinSemana += consumo[i];\n" +
+"            }\n" +
+"        }\n" +
+"        System.out.println(\"Promedio entre semana: \" + totalEntreSemana / 5 + \" kWh\");\n" +
+"        System.out.println(\"Promedio fin de semana: \" + totalFinSemana / 2 + \" kWh\");\n" +
+"        System.out.println();\n" +
+"    }\n" +
+"    \n" +
+"    // Método para generar las estadísticas del hotel\n" +
+"    public static void generarEstadisticas(int[][] consumo) {\n" +
+"        int diasSemana = consumo[0].length;\n" +
+"        int habitaciones = consumo.length;\n" +
+"        \n" +
+"        // a. Consumo total por día\n" +
+"        int[] consumoTotalPorDia = new int[diasSemana];\n" +
+"        for (int i = 0; i < diasSemana; i++) {\n" +
+"            for (int j = 0; j < habitaciones; j++) {\n" +
+"                consumoTotalPorDia[i] += consumo[j][i];\n" +
+"            }\n" +
+"        }\n" +
+"        \n" +
+"        System.out.println(\"Consumo total del hotel discriminado por día:\");\n" +
+"        String[] dias = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};  
+    }
+
+        private static void generarEstadisticas(int[][] consumo) {
+            for (int i = 0; i < diasSemana; i++) {
+            System.out.println(dias[i] + ": " + consumoTotalPorDia[i] + " kWh");
+        }
+
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+    
+}
